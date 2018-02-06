@@ -1,33 +1,43 @@
-# http://www.gnu.org/software/automake
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-Makefile.in
-/ar-lib
-/mdate-sh
-/py-compile
-/test-driver
-/ylwrap
+# compiled output
+/dist
+/dist-server
+/tmp
+/out-tsc
 
-# http://www.gnu.org/software/autoconf
+# dependencies
+/node_modules
 
-/autom4te.cache
-/autoscan.log
-/autoscan-*.log
-/aclocal.m4
-/compile
-/config.guess
-/config.h.in
-/config.sub
-/configure
-/configure.scan
-/depcomp
-/install-sh
-/missing
-/stamp-h1
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# https://www.gnu.org/software/libtool/
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-/ltmain.sh
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
 
-# http://www.gnu.org/software/texinfo
+# e2e
+/e2e/*.js
+/e2e/*.map
 
-/texinfo.tex
+# System Files
+.DS_Store
+Thumbs.db
