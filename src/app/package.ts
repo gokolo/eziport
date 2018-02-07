@@ -9,5 +9,4 @@ export class Package {
     title: string;
     username: string;
     status: string;
-    transfer: string;
   }
