@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AdministrationComponent } from './administration/administration.component';
 
 const appRoutes: Routes = [
   //route your pages here
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'administration', component: AdministrationComponent }
 ];
 
 @NgModule({
@@ -18,7 +20,8 @@ const appRoutes: Routes = [
     AppComponent,
     LoginPage,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdministrationComponent
   ],
   imports: [
     RouterModule.forRoot(
