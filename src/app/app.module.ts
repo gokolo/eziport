@@ -5,17 +5,20 @@ import { AppComponent } from './app.component';
 //add your pages here
 import { LoginPage } from '../pages/login/login';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const appRoutes: Routes = [
   //route your pages here
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPage,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     RouterModule.forRoot(
