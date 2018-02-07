@@ -1,0 +1,80 @@
+
+  <h3>Send Search Request Form</h3  >
+  <div *ngIf="message">
+    <div *ngIf="message.type == 'success'" class="alert alert-success">
+      <strong>Success!</strong> {{message.value}}
+    </div>
+
+    <div *ngIf="message.type == 'info'" class="alert alert-info">
+      <strong>Info!</strong> {{message.value}}
+    </div>
+
+    <div *ngIf="message.type == 'warning'" class="alert alert-warning">
+      <strong>Warning!</strong> {{message.value}}
+    </div>
+
+    <div *ngIf="message.type == 'danger'" class="alert alert-danger">
+      <strong>Danger!</strong> {{message.value}}
+    </div>
+  </div>
+  <form *ngIf="!selectedTransfer" (ngSubmit)="onSubmit()" #sendSearchRequestForm="ngForm">
+    <div class="form-group">
+      <label for="from">From</label>
+      <select [(ngModel)]="model.from" class="form-control" id="from" name="from" required>
+        <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="to">To</label>
+      <select [(ngModel)]="model.to" class="form-control" id="to" name="to" required>
+        <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="by">By</label>
+      <input [(ngModel)]="model.by" name="by" type="date" class="form-control" id="by" required>
+    </div>
+
+
+
+    <button [disabled]="!sendSearchRequestForm.form.valid" type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+
+  <br>
+  <div *ngIf="transferRequests && !selectedTransfer" class="send-search-result">
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Transfer Date</th>
+              <th>Maximum Weight</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let transferRequest of transferRequests">
+                  <td>{{transferRequest.on}}</td>
+                  <td>{{transferRequest.weight}} kg</td>
+                  <td><button (click)="OnSelect(transferRequest)" class="btn btn-success">Select</button></td>
+                </tr>
+          </tbody>
+        </table>
+  </div>
+
+  <form *ngIf="selectedTransfer && !message" (ngSubmit)="OnBook()" #submitPackageInfo="ngForm">
+
+    <div class="form-group">
+      <label for="by">To Address</label>
+      <input [(ngModel)]="model.toAddress" name="by" type="text" class="form-control" id="by" required>
+    </div>
+    <div class="form-group">
+      <label for="weight">Weight</label>
+      <input [(ngModel)]="model.weight" name="weight" type="number" max="selectedTransfer.weight" class="form-control" id="weight" required>
+    </div>
+
+
+
+    <button [disabled]="!submitPackageInfo.form.valid" type="submit" class="btn btn-success">Book</button>
+
+  </form>
