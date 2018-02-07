@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { SendSearchFormComponent } from './send-search-form/send-search-form.component';
 import { HomeComponent } from './home/home.component';
@@ -30,8 +29,7 @@ const appRoutes: Routes = [
     ),
 
     BrowserModule,
-    FormsModule,
-    NgbModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
