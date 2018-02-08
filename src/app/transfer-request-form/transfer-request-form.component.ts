@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {TransferRequest} from '../transfer-request';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class TransferRequestFormComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public authService: AuthService) {}
 
   transferRequest = new TransferRequest(0, '', 1, '', '');
   submitted = false;
@@ -273,6 +274,6 @@ export class TransferRequestFormComponent {
       "date" : "1618029036",
       "weight" : 15,
       "username" : "dummyTransfere"
-    }).subscribe(data => console.log(data));
+    }).subscribe(data => this.message = JSON.parse(JSON.stringify(data)));
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SendSearchRequest} from '../send-search-request';
 import {TransferRequest} from '../transfer-request';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-send-search-form',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./send-search-form.component.css']
 })
 export class SendSearchFormComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public authService: AuthService) {}
   transferRequests;
   countries = [
     {"name": "Afghanistan", "code": "AF"},
@@ -263,6 +264,7 @@ export class SendSearchFormComponent {
   selectedTransfer;
 
   onSubmit() {
+    console.log(this.authService.getUserName());
     this.submitted = true;
     console.log(this.model.by);
     this.http.post("http://localhost:8080/get-transferer",{

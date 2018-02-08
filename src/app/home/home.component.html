@@ -6,7 +6,8 @@
   </h3>
   <button (click) = "shownForm='send'" class="w3-button w3-blue">Send Package</button>
   <button (click) = "shownForm='transfer'" class="w3-button w3-green">Transfer Package</button>
-
+  <h3>{{authService.getUserName()}}</h3>
   <app-send-search-form *ngIf="shownForm == 'send'" class="send_search_form"></app-send-search-form>
   <app-transfer-request-form *ngIf="shownForm == 'transfer'" class="send_search_form"></app-transfer-request-form>
+  
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'; 
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-mypackages',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./mypackages.component.css']
 })
 export class MypackagesComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public authService: AuthService) {}
   transferings;
   sendings;
   shownPackages = '';

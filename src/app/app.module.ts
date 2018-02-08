@@ -13,8 +13,10 @@ import { SendSearchFormComponent } from './send-search-form/send-search-form.com
 import { HomeComponent } from './home/home.component';
 import { TransferRequestFormComponent } from './transfer-request-form/transfer-request-form.component';
 import { MypackagesComponent } from './mypackages/mypackages.component';
+import { AuthService } from './auth.service';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: '', component: LoginComponent },
   { path: 'send', component: SendSearchFormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'mypackages', component: MypackagesComponent },
@@ -46,7 +48,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,21 +1,12 @@
 <h3>Transfer Request Form</h3  >
-<div *ngIf="message">
-  <div *ngIf="message.type == 'success'" class="alert alert-success">
-    <strong>Success!</strong> {{message.value}}
-  </div>
+  <div *ngIf="message">
 
-  <div *ngIf="message.type == 'info'" class="alert alert-info">
-    <strong>Info!</strong> {{message.value}}
-  </div>
 
-  <div *ngIf="message.type == 'warning'" class="alert alert-warning">
-    <strong>Warning!</strong> {{message.value}}
-  </div>
-
-  <div *ngIf="message.type == 'danger'" class="alert alert-danger">
-    <strong>Danger!</strong> {{message.value}}
-  </div>
-</div>
+      <div class="alert alert-info">
+        <strong>Info!</strong> {{message.message}}
+      </div>
+  
+    </div>
 <form *ngIf="!message" (ngSubmit)="onSubmit()" #transferRequestForm="ngForm">
   <div class="form-group">
     <label for="from">From</label>
