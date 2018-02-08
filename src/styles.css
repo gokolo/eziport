@@ -53,7 +53,7 @@
     transition: .5s ease;
   }
   .tab-group li a:hover {
-    background: #007bff;
+    background: #0468d2;
     color: #ffffff;
   }
   .tab-group .active a {
