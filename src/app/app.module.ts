@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { PackageComponent } from './Package/Package.component';
+import { PackageComponent } from './package/package.component';
 import { SendSearchFormComponent } from './send-search-form/send-search-form.component';
 import { HomeComponent } from './home/home.component';
 import { TransferRequestFormComponent } from './transfer-request-form/transfer-request-form.component';
