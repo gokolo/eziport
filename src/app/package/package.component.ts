@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Router, Routes } from '@angular/router';
 
-import { Package } from '../package';
 
 @Component({
   selector: 'app-Package',
