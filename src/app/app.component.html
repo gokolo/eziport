@@ -1,12 +1,25 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-inverse" style="background-color:#007bff;">
+<ul class="nav nav-pills" role="tablist">
+    <a routerLink="/" routerLinkActive="active" style="color:whitesmoke; margin-right:10px; text-decoration:none"> <h1>Eziport</h1> </a>
+      <li class="nav-item">
+        <a routerLink="/home" routerLinkActive="active" style="font-size:18px" class="nav-link active" data-toggle="pill">Home</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/login" routerLinkActive="active" class="nav-link" data-toggle="pill" style="color:rgb(229, 236, 228); font-size:18px;">Log in</a>
+      </li>
+      <li class="nav-item">
+        <a a routerLink="/register" routerLinkActive="active" class="nav-link" data-toggle="pill" style="color:antiquewhite; font-size:18px;">Register</a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/package" routerLinkActive="active" class="nav-link" data-toggle="pill" style="color:antiquewhite; font-size:18px;">Admin</a>
+        </li>
+    </ul>
 
-<h1>EziPort</h1>
-<nav>
-  <a routerLink="/home" routerLinkActive="active">Home</a>
-  <a routerLink="/login" routerLinkActive="active">Log In</a>
-  <a routerLink="/register" routerLinkActive="active">Register</a>  
-  <a routerLink="/Package" routerLinkActive="active">Packages</a>
-</nav>
+    <form class="form-inline">
+      <i style = "color:beige"class="material-icons">person</i>
+      <button type="button" class="btn btn-link" id="button1"> Log out</button>  
+    </form>
+</nav> 
 <router-outlet></router-outlet>
 
 
