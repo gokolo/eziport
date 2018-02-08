@@ -16,7 +16,7 @@
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
-                <tr *ngFor="let package of packages" >
+                <tr *ngFor="let package of packages.content" >
                   <td>{{package.sendId}}</td> 
                   <td>{{package.countryFrom}}</td> 
                   <td>{{package.countryTo}}</td> 
