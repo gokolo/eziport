@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   { path: 'send', component: SendSearchFormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'Package', component: PackageComponent }
+  { path: 'package', component: PackageComponent }
 
 ];
 
