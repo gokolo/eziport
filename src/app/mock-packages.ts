@@ -1,12 +1,38 @@
 export const PACKAGES = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+  { sendId: 1,
+    destination: 'demo destination',
+    countryFrom: 'Estonia',
+    countryTo: 'India',
+    weight: '8',
+    date: 1518040949489,
+    packageDetail: 'description of the package',
+    title: 'title of the package',
+    username: 'demoSender',
+    status: 'REQUESTED'
+   },
+  { 
+    sendId: 2,
+    destination: 'demo destination',
+    countryFrom: 'Estonia',
+    countryTo: 'India',
+    weight: '8',
+    date: 1518040949489,
+    packageDetail: 'description of the package',
+    title: 'title of the package',
+    username: 'demoSender',
+    status: 'REQUESTED'
+   },
+  { 
+    sendId: 3,
+    destination: 'demo destination',
+    countryFrom: 'Estonia',
+    countryTo: 'India',
+    weight: '8',
+    date: 1518040949489,
+    packageDetail: 'description of the package',
+    title: 'title of the package',
+    username: 'demoSender',
+    status: 'REQUESTED'
+   }
 ];
+

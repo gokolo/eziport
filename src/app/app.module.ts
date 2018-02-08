@@ -1,37 +1,48 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+import { HttpClientModule }    from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-//add your pages here
-import { LoginPage } from '../pages/login/login';
+
+import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AdministrationComponent } from './administration/administration.component';
-
+import { PackageComponent } from './Package/Package.component';
+import { SendSearchFormComponent } from './send-search-form/send-search-form.component';
+import { HomeComponent } from './home/home.component';
+import { TransferRequestFormComponent } from './transfer-request-form/transfer-request-form.component';
 const appRoutes: Routes = [
-  //route your pages here
+  { path: 'home', component: HomeComponent },
+  { path: 'send', component: SendSearchFormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'administration', component: AdministrationComponent }
+  { path: 'Package', component: PackageComponent }
+
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPage,
+
+    SendSearchFormComponent,
+    HomeComponent,
+    TransferRequestFormComponent,
     LoginComponent,
     RegisterComponent,
-    AdministrationComponent
+    PackageComponent
+
   ],
   imports: [
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

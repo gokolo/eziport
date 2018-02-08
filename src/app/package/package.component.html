@@ -7,18 +7,24 @@
           <div class="table-responsive">
             <table class="table table-hover">
                 <tr>
-                  <th> Id</th> 
-                  <th>Title</th>
-                  <th>Category</th>
+                  <th>Package ID</th> 
+                  <th>Destination Country</th>
+                  <th>Weight</th>
+                  <th>Details</th>
+                  <th>Sender</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
-                <tr *ngFor="let package of packages" >
-                  <td>{{package.id}}</td> 
-                  <td>{{package.name}}</td> 
-                  <td>{{package.name}}</td>
-                  <td class="form-group">
-                    <button class="btn btn-sm btn-success" type="button" (click)="verifyPackage(package.id)">Verify</button> 
-                    <button class="btn btn-sm btn-danger" type="button" (click)="rejectPackage(package.id)">Reject</button>
+                <tr *ngFor="let package of packages.content" >
+                  <td>{{package.sendId}}</td> 
+                  <td>{{package.countryTo}}</td> 
+                  <td>{{package.weight}}</td> 
+                  <td>{{package.packageDetail}}</td> 
+                  <td>{{package.username}}</td> 
+                  <td>{{package.status}}</td>
+                  <td class="form-inline">
+                    <button class="btn btn-sm btn-success" type="button" (click)="approvePackage(package.sendId)">Verify</button> 
+                    <button class="btn btn-sm btn-danger" type="button" (click)="disapprovePackage(package.sendId)">Reject</button>
                   </td>
                 </tr>
               </table>
