@@ -1,0 +1,14 @@
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  
+#button1{
+    color:aliceblue; 
+    text-decoration:none;
+}
+
+#button1:hover {
+    background-color: rgb(145, 172, 163);
+    color: white;
+}

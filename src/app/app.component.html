@@ -1,11 +1,57 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<h1>EziPort</h1>
-<nav>
-  <a routerLink="/" routerLinkActive="active">Home</a>
-  <a routerLink="/login" routerLinkActive="active">Log In</a>
-  <a routerLink="/register" routerLinkActive="active">Register</a>  
-  <a routerLink="/administration" routerLinkActive="active">Admin</a>
-</nav>
+<nav class="navbar navbar-inverse" style="background-color:#007bff;">
+<ul class="nav nav-pills" role="tablist">
+    <a routerLink="/" routerLinkActive="active" style="color:whitesmoke; margin-right:10px; text-decoration:none"> <h1>Eziport</h1> </a>
+      <li class="nav-item">
+        <a routerLink="/" routerLinkActive="active" style="font-size:18px" class="nav-link active" data-toggle="pill">Home</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/login" routerLinkActive="active" class="nav-link" data-toggle="pill" style="color:rgb(229, 236, 228); font-size:18px;">Log in</a>
+      </li>
+      <li class="nav-item">
+        <a a routerLink="/register" routerLinkActive="active" class="nav-link" data-toggle="pill" style="color:antiquewhite; font-size:18px;">Register</a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/administration" routerLinkActive="active" class="nav-link" data-toggle="pill" style="color:antiquewhite; font-size:18px;">Admin</a>
+        </li>
+    </ul>
+
+    <form class="form-inline">
+      <i style = "color:beige"class="material-icons">person</i>
+      <button type="button" class="btn btn-link" id="button1"> Log out</button>  
+    </form>
+</nav> 
+
+<div class="container">
+      <div class="row my-4">
+        <div class="col-lg-8">
+          <img class="img-fluid rounded" src="assets/images/eziport logo.jpg" alt="Eziport">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+          <h1>Eziport</h1>
+          <p>TeziPort is a reliable service engineered by students for students to connect them with their relatives and loved ones in their home countries.</p>
+          Enter date to send package:
+          <input type="date" name="packagedate">
+          <select name="countries">
+            <option value="Finland">Finland</option>
+            <option value="russia">Russia</option>
+            <option value="ukraine">Ukraine</option>
+            <option value="georgia">Georgia</option>
+            <option value="latvia">Latvia</option>
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+            <option value="turkey">Turkey</option>
+            <option value="nigeria">Nigeria</option>
+            <option value="china">China</option>
+            <option value="china">other</option>
+          </select>
+          <a routerLink="/administration" routerLinkActive="active" class="btn btn-primary btn-lg">Send package</a>
+        </div>
+        <!-- /.col-md-4 -->
+      </div>
+      <!-- /.row -->
+</div>
+
 <router-outlet></router-outlet>
 
 
