@@ -269,11 +269,11 @@ export class TransferRequestFormComponent {
     console.log(this.transferRequest);
     this.message = {type: 'success', value: 'Your transfer request has been submited! We will notify you when it gets booked.'};
     this.http.post('http://localhost:8080/post-transfer', {
-      "countryFrom" : "Estonia",
-      "countryTo" : "India",
-      "date" : "1618029036",
-      "weight" : 15,
-      "username" : "dummyTransfere"
+      "countryFrom" : this.transferRequest.from,
+      "countryTo" : this.transferRequest.to,
+      "date" : Date.parse(this.transferRequest.on),
+      "weight" : this.transferRequest.weight,
+      "username" : this.authService.getUserName()
     }).subscribe(data => this.message = JSON.parse(JSON.stringify(data)));
   }
 }

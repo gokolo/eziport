@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -12,6 +11,11 @@ export class AppComponent {
 
   }
   title = 'app';
+
+  logout()
+  {
+    this.authService.unsetUserName();
+  }
 
   // openEventPage(event) {
   //   this.navCtrl.push(EventPage, { event: event});

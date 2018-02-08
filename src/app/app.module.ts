@@ -16,7 +16,7 @@ import { MypackagesComponent } from './mypackages/mypackages.component';
 import { AuthService } from './auth.service';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent },
   { path: 'send', component: SendSearchFormComponent },
   { path: 'login', component: LoginComponent },
   { path: 'mypackages', component: MypackagesComponent },

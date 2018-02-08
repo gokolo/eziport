@@ -12,13 +12,13 @@
     <div class="form-group">
       <label for="from">From</label>
       <select [(ngModel)]="model.from" class="form-control" id="from" name="from" required>
-        <option *ngFor="let country of countries" [value]="country">{{country.code}} - {{country.name}}</option>
+        <option *ngFor="let country of countries" [value]="country.name">{{country.code}} - {{country.name}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="to">To</label>
       <select [(ngModel)]="model.to" class="form-control" id="to" name="to" required>
-        <option *ngFor="let country of countries" [value]="country">{{country.code}} - {{country.name}}</option>
+        <option *ngFor="let country of countries" [value]="country.name">{{country.code}} - {{country.name}}</option>
       </select>
     </div>
 
@@ -45,7 +45,7 @@
           </thead>
           <tbody>
               <tr *ngFor="let transferRequest of transferRequests">
-                  <td>{{transferRequest.date}}</td>
+                  <td>{{transferRequest.date | date:'dd/MM/yyyy'}}</td>
                   <td>{{transferRequest.weight}} kg</td>
                   <td><button (click)="OnSelect(transferRequest)" class="btn btn-primary">Select</button></td>
                 </tr>
@@ -64,8 +64,15 @@
       <input [(ngModel)]="model.weight" name="weight" type="number" max="selectedTransfer.weight" class="form-control" id="weight" required>
     </div>
 
+    <div class="form-group">
+        <label for="title">title</label>
+        <input [(ngModel)]="model.title" name="title" type="text" class="form-control" id="title" >
+      </div>
+      <div class="form-group">
+        <label for="detail">detail</label>
+        <input [(ngModel)]="model.detail" name="detail" type="text" class="form-control" id="detail" >
+      </div>
 
-
-    <button [disabled]="!submitPackageInfo.form.valid" type="submit" class="btn btn-primary">Book</button>
-
+    <button *ngIf = "authService.getUserName()" [disabled]="!submitPackageInfo.form.valid" type="submit" class="btn btn-primary">Book</button>
+    <button *ngIf = "!authService.getUserName()" routerLink="/login" class="btn btn-primary">Login to make booking</button>
   </form>

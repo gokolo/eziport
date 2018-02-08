@@ -12,15 +12,15 @@ export class MypackagesComponent implements OnInit {
   constructor(private http: HttpClient, public authService: AuthService) {}
   transferings;
   sendings;
-  shownPackages = '';
+  shownPackages = 'sendings';
   messsages = [];
 
  getSendings(){
   this.shownPackages = "sending";
-  this.http.get("http://localhost:8080/get_bookings?username=demoSender").subscribe(data => this.sendings = JSON.parse(JSON.stringify(data)).content);
+  this.http.get("http://localhost:8080/get_bookings?username="+this.authService.getUserName()).subscribe(data =>  this.sendings = JSON.parse(JSON.stringify(data)).content);
  }
  getTransferings(){
-  this.http.get("http://localhost:8080//transfers?username=dummyTransfere").subscribe(
+  this.http.get("http://localhost:8080/transfers?username="+this.authService.getUserName()).subscribe(
     data => this.transferings = JSON.parse(JSON.stringify(data)).content);
 }
 accept(transfering)
@@ -32,8 +32,13 @@ reject(transfering)
   console.log("rejectig");
 }
 ngOnInit() {
+
+  this.shownPackages = 'sendings';
+  console.log(this.authService.getUserName());
   this.getSendings();
-  this.getTransferings()
+  this.getTransferings();
+  console.log(this.sendings);
+  console.log(this.transferings);
 
 }
 

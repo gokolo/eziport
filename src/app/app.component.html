@@ -1,5 +1,4 @@
 <header>
-  <h3>{{authService.getUserName()}}</h3>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="navbar-header">
@@ -11,12 +10,17 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li *ngIf = "authService.getUserName()" class="nav-item">
           <a routerLink="/mypackages" class="nav-link text-white" href="#">My Packages <span class="sr-only"></span></a>
         </li>
       </ul>
-      <form class="form-inline">
-        <button type="button" data-toggle="tooltip" title="Logout" data-placement="left" class="material-icons btn btn-link btn-lg" id="button1">power_settings_new</button>  
+      
+      <form *ngIf = "authService.getUserName()" class="form-inline">
+        <h3> welcome {{authService.getUserName()}}</h3>
+        <button (click) = "logout()" type="button" data-toggle="tooltip" title="Logout" data-placement="left" class="material-icons btn btn-link btn-lg" id="button1">power_settings_new</button>  
+      </form>
+      <form *ngIf = "!authService.getUserName()" class="form-inline">
+          <a routerLink="/login" class="nav-link text-white" href="#">Login<span class="sr-only"></span></a>  
       </form>
     </div>
   </nav>

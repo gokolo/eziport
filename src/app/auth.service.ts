@@ -12,4 +12,8 @@ export class AuthService {
   {
     return this.username;
   }
+  unsetUserName()
+  {
+    this.username = null;
+  }
 }

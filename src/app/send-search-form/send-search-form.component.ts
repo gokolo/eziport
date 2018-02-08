@@ -258,19 +258,19 @@ export class SendSearchFormComponent {
     {"name": "Zimbabwe", "code": "ZW"}
     ];
 
-  model = new SendSearchRequest('', '', '', '', '');
+  model = new SendSearchRequest('', '', '', '', '','','');
   submitted = false;
   message;
   selectedTransfer;
 
   onSubmit() {
-    console.log(this.authService.getUserName());
+    console.log(this.model.by);
     this.submitted = true;
     console.log(this.model.by);
     this.http.post("http://localhost:8080/get-transferer",{
-      "countryFrom" : "Estonia",
-      "countryTo" : "India",
-      "date" : "1718029036"
+      "countryFrom" : this.model.from,
+      "countryTo" : this.model.to,
+      "date" : Date.parse(this.model.by)
   }).subscribe(data => this.transferRequests = JSON.parse(JSON.stringify(data)).content);
   }
 
@@ -287,9 +287,9 @@ export class SendSearchFormComponent {
     this.http.post("http://localhost:8080/book-package/"+this.selectedTransfer.transferId,{
       "destination"  : this.model.toAddress,
       "weight" : this.model.weight, 
-      "title" : "title of the package",
-      "packageDetail" : "description of the package",
-      "username" : "demoSender"
+      "title" : this.model.title,
+      "packageDetail" : this.model.detail,
+      "username" : this.authService.getUserName()
     }).subscribe(data => this.message = JSON.parse(JSON.stringify(data)));
   }
 }
