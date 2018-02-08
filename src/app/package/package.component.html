@@ -8,7 +8,6 @@
             <table class="table table-hover">
                 <tr>
                   <th>Package ID</th> 
-                  <th>Origin Country</th>
                   <th>Destination Country</th>
                   <th>Weight</th>
                   <th>Details</th>
@@ -18,7 +17,6 @@
                 </tr>
                 <tr *ngFor="let package of packages.content" >
                   <td>{{package.sendId}}</td> 
-                  <td>{{package.countryFrom}}</td> 
                   <td>{{package.countryTo}}</td> 
                   <td>{{package.weight}}</td> 
                   <td>{{package.packageDetail}}</td> 
