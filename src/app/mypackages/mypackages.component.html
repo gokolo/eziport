@@ -1,47 +1,51 @@
-<br><br><br>
-<h3>
-  You can see your sendings and transferings here.
-</h3>
-<a (click) = "shownPackages='sendings'" class="w3-button w3-blue">Sending</a>
-<a (click) = "shownPackages='transferings'" class="w3-button w3-green">Transfering</a>
-<div *ngIf = "shownPackages=='sendings'">
-  My sendings
-</div>
+<div class="container">
+    <ul class="tab-group">
+      <li class="tab active"><a (click) = "shownPackages='sendings'">Sent Packages</a></li>
+      <li class="tab"><a (click) = "shownPackages='transferings'">Transfered Packages</a></li>
+    </ul>
 
-<div *ngIf = "shownPackages=='transferings'">
-  My transferings
-  <div *ngIf = "transferings">
-    {{transfering}}
-    <table class="w3-table-all">
-      <thead>
-        <tr class="w3-green">
-          <th>From</th>
-          <th>To</th>
-          <th>Date</th>
-          <th>Weight(Kg)</th>
-          <th>Status</th>
-          <th>Requests<br>Title      Weight       Action</th>
-        </tr>
-      </thead>
-      <tr *ngFor = "let transfering of transferings">
-        <td>{{transfering.countryFrom}}</td>
-        <td>{{transfering.countryTo}}</td>
-        <td>{{transfering.date}}</td>
-        <td>{{transfering.weight}}</td>
-        <td>{{transfering.status}}</td>
-        <td>
-            <div class="row" *ngFor = "let sendingReq of  transfering.sendingList">
-                <td>{{sendingReq.title}}</td>
-                <td>{{sendingReq.weight}} kg</td>
-                <td class = "margin-right" *ngIf = "sendingReq.status == 'PENDING'" (click) = "accept(transfering)" class="w3-button w3-green">Accept</td>
-                <td *ngIf = "sendingReq.status =='PENDING'" (click) = "reject(transfering)" class="w3-button w3-red">Reject</td>
-            </div>
-
-        </td>
-      </tr>
-    </table>
+    <div *ngIf = "shownPackages=='sendings'">
+        My sendings
+      </div>
+      
+      <div *ngIf = "shownPackages=='transferings'">
+        My transferings
+        <div *ngIf = "transferings">
+          {{transfering}}
+          <table class="w3-table-all">
+            <thead>
+              <tr class="w3-green">
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Weight(Kg)</th>
+                <th>Status</th>
+                <th>Requests<br>Title      Weight       Action</th>
+              </tr>
+            </thead>
+            <tr *ngFor = "let transfering of transferings">
+              <td>{{transfering.countryFrom}}</td>
+              <td>{{transfering.countryTo}}</td>
+              <td>{{transfering.date}}</td>
+              <td>{{transfering.weight}}</td>
+              <td>{{transfering.status}}</td>
+              <td>
+                  <div class="row" *ngFor = "let sendingReq of  transfering.sendingList">
+                      <td>{{sendingReq.title}}</td>
+                      <td>{{sendingReq.weight}} kg</td>
+                      <td class = "margin-right" *ngIf = "sendingReq.status == 'PENDING'" (click) = "accept(transfering)" class="w3-button w3-green">Accept</td>
+                      <td *ngIf = "sendingReq.status =='PENDING'" (click) = "reject(transfering)" class="w3-button w3-red">Reject</td>
+                  </div>
+      
+              </td>
+            </tr>
+          </table>
+        </div>
+        
+      </div>
+  
+    
+      
   </div>
   
-</div>
-
-
+  
