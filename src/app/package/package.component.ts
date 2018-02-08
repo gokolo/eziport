@@ -15,7 +15,12 @@ export class PackageComponent {
     this.http.get("http://localhost:8087/get_bookings?username=demoSender").subscribe((data) => this.packages = data);
    }
 
-  //heroes => this.heroes = heroes
-
+   approvePackage(package_id) {
+    this.http.get("http://localhost:8087//update-booking/"+package_id+"/APPROVED").subscribe(data => console.log(data));
+   }
+  
+   disapprovePackage(package_id) {
+    this.http.get("http://localhost:8087//update-booking/"+package_id+"/DISAPPROVE").subscribe(data => console.log(data));
+   }
 
 }

@@ -25,8 +25,8 @@
                   <td>{{package.username}}</td> 
                   <td>{{package.status}}</td>
                   <td class="form-inline">
-                    <button class="btn btn-sm btn-success" type="button" (click)="verifyPackage(package.id)">Verify</button> 
-                    <button class="btn btn-sm btn-danger" type="button" (click)="rejectPackage(package.id)">Reject</button>
+                    <button class="btn btn-sm btn-success" type="button" (click)="approvePackage(package.sendId)">Verify</button> 
+                    <button class="btn btn-sm btn-danger" type="button" (click)="disapprovePackage(package.sendId)">Reject</button>
                   </td>
                 </tr>
               </table>
