@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="text-center text-uppercase">
+            <h3>Packages</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+                <tr>
+                  <th>Package ID</th> 
+                  <th>Destination Country</th>
+                  <th>Weight</th>
+                  <th>Details</th>
+                  <th>Sender</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+                <tr *ngFor="let package of packages.content" >
+                  <td>{{package.sendId}}</td> 
+                  <td>{{package.countryTo}}</td> 
+                  <td>{{package.weight}}</td> 
+                  <td>{{package.packageDetail}}</td> 
+                  <td>{{package.username}}</td> 
+                  <td>{{package.status}}</td>
+                  <td class="form-inline">
+                    <button class="btn btn-sm btn-success" type="button" (click)="approvePackage(package.sendId)">Verify</button> 
+                    <button class="btn btn-sm btn-danger" type="button" (click)="disapprovePackage(package.sendId)">Reject</button>
+                  </td>
+                </tr>
+              </table>
+          
+              <nav aria-label="...">
+                <ul class="pagination">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item active">
+                      <a class="page-link">1 <span class="sr-only">(current)</span></a>
+                    </li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>                  
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+          
+          </div>
+      </div> 
+  </div>
+</div>
