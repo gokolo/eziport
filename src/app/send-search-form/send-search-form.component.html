@@ -1,5 +1,5 @@
 
-  <h3>Wanna send your package some where?</h3  >
+  <h3></h3  >
   <div *ngIf="message">
 
 
@@ -8,8 +8,41 @@
     </div>
 
   </div>
- 
-  <form *ngIf="!selectedTransfer" (ngSubmit)="onSubmit()" #sendSearchRequestForm="ngForm">
+ <div *ngIf="!authService.getUserName()" class="row">
+    <div *ngIf="!authService.getUserName()" class="col-lg-6">
+      <h1>we put the logo here</h1>
+    </div>
+    <div *ngIf="!authService.getUserName()" class="col-lg-6">
+        <h3>Wanna send your package some where?</h3> 
+        <form *ngIf="!selectedTransfer" (ngSubmit)="onSubmit()" #sendSearchRequestForm="ngForm">
+            <div class="form-group">
+              <label for="from">From</label>
+              <select [(ngModel)]="model.from" class="form-control" id="from" name="from" required>
+                <option *ngFor="let country of countries" [value]="country.name">{{country.code}} - {{country.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="to">To</label>
+              <select [(ngModel)]="model.to" class="form-control" id="to" name="to" required>
+                <option *ngFor="let country of countries" [value]="country.name">{{country.code}} - {{country.name}}</option>
+              </select>
+            </div>
+        
+            <div class="form-group">
+              <label for="by">By</label>
+              <input [(ngModel)]="model.by" name="by" type="date" class="form-control" id="by" required>
+            </div>
+        
+        
+        
+            <button [disabled]="!sendSearchRequestForm.form.valid" type="submit" class="btn btn-primary">Search</button>
+        
+          </form>
+    </div>
+
+
+</div>
+<form *ngIf="!selectedTransfer && authService.getUserName()" (ngSubmit)="onSubmit()" #sendSearchRequestForm="ngForm">
     <div class="form-group">
       <label for="from">From</label>
       <select [(ngModel)]="model.from" class="form-control" id="from" name="from" required>
@@ -33,7 +66,6 @@
     <button [disabled]="!sendSearchRequestForm.form.valid" type="submit" class="btn btn-primary">Search</button>
 
   </form>
-
   <br>
   <div *ngIf="transferRequests && !selectedTransfer" class="send-search-result">
       <table class="table">
