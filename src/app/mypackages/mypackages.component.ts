@@ -13,7 +13,7 @@ export class MypackagesComponent implements OnInit {
   transferings;
   sendings;
   shownPackages = 'sendings';
-  messsages = [];
+  messsage;
 
  getSendings(){
   this.shownPackages = "sending";
@@ -23,13 +23,19 @@ export class MypackagesComponent implements OnInit {
   this.http.get("http://localhost:8080/transfers?username="+this.authService.getUserName()).subscribe(
     data => this.transferings = JSON.parse(JSON.stringify(data)).content);
 }
-accept(transfering)
+accept(sendId)
 {
-  console.log("accepting");
+  this.http.get("http://localhost:8080//update-booking/"+sendId+"/APPROVED").subscribe(
+    data => this.messsage = JSON.parse(JSON.stringify(data)));
+    this.getTransferings();
+    this.getSendings();
 }
-reject(transfering)
+reject(sendId)
 {
-  console.log("rejectig");
+  this.http.get("http://localhost:8080//update-booking/"+sendId+"/DISAPPROVED").subscribe(
+    data => this.messsage = JSON.parse(JSON.stringify(data)));
+    this.getTransferings();
+    this.getSendings();
 }
 ngOnInit() {
 

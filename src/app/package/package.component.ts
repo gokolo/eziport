@@ -18,21 +18,19 @@ export class PackageComponent {
    }
 
    getPackages() {
-    this.http.get("http://localhost:8087/get_bookings?username=demoSender").subscribe((data) => this.packages = data);
+    this.http.get("http://localhost:8080/get_bookings?username=demoSender").subscribe((data) => this.packages = data);
 
    }
 
    approvePackage(package_id) {
-    this.http.get("http://localhost:8087//update-booking/"+package_id+"/APPROVED").subscribe(data => console.log("Package "+package_id+" approved"));
+    this.http.get("http://localhost:8080//update-booking/"+package_id+"/VERIFIED").subscribe(data => console.log("Package "+package_id+" approved"));
     this.getPackages();
-    this.router.navigateByUrl(`/admin`);
 
    }
   
    disapprovePackage(package_id) {
-    this.http.get("http://localhost:8087//update-booking/"+package_id+"/DISAPPROVE").subscribe(data => console.log("Package "+package_id+" disapproved"));
+    this.http.get("http://localhost:8080//update-booking/"+package_id+"/REJECTED").subscribe(data => console.log("Package "+package_id+" disapproved"));
     this.getPackages();
-    this.router.navigateByUrl(`/admin`);
    }
 
 }

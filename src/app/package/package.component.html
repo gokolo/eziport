@@ -23,8 +23,8 @@
                   <td>{{package.username}}</td> 
                   <td>{{package.status}}</td>
                   <td class="form-inline">
-                    <button class="btn btn-sm btn-success" type="button" (click)="approvePackage(package.sendId)">Verify</button> 
-                    <button class="btn btn-sm btn-danger" type="button" (click)="disapprovePackage(package.sendId)">Reject</button>
+                    <button *ngIf = "package.status != 'REJECTED' &&  package.status != 'VERIFIED'" class="btn btn-sm btn-success" type="button" (click)="approvePackage(package.sendId)">Verify</button> 
+                    <button *ngIf = "package.status != 'REJECTED' &&  package.status != 'VERIFIED'"class="btn btn-sm btn-danger" type="button" (click)="disapprovePackage(package.sendId)">Reject</button>
                   </td>
                 </tr>
               </table>

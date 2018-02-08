@@ -19,7 +19,6 @@
             <th>To</th>
             <th>Date</th>
             <th>Weight(Kg)</th>
-            <th>Status</th>
             <th>Requests
               <br>Title Weight Action</th>
           </tr>
@@ -29,13 +28,13 @@
           <td>{{transfering.countryTo}}</td>
           <td>{{transfering.date | date:'dd/MM/yyyy'}}</td>
           <td>{{transfering.weight}}</td>
-          <td>{{transfering.status}}</td>
           <td>
             <div class="row" *ngFor="let sendingReq of  transfering.sendingList">
               <td>{{sendingReq.title}}</td>
               <td>{{sendingReq.weight}} kg</td>
-              <td class="margin-right" *ngIf="sendingReq.status == 'PENDING'" (click)="accept(transfering)" class="w3-button w3-green">Accept</td>
-              <td *ngIf="sendingReq.status =='PENDING'" (click)="reject(transfering)" class="w3-button w3-red">Reject</td>
+              <td class="margin-right" *ngIf="sendingReq.status == 'PENDING'" (click)="accept(sendingReq.sendId)" class="w3-button w3-green">Accept</td>
+              <td *ngIf="sendingReq.status =='PENDING'" (click)="reject(sendingReq.sendId)" class="w3-button w3-red">Reject</td>
+              <td *ngIf="sendingReq.status !='PENDING'" >{{sendingReq.status}}</td>
             </div>
 
           </td>

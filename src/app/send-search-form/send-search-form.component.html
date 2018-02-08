@@ -1,5 +1,5 @@
 
-  <h3>Send Search Request Form</h3  >
+  <h3>Wanna send your package some where?</h3  >
   <div *ngIf="message">
 
 
@@ -8,6 +8,7 @@
     </div>
 
   </div>
+ 
   <form *ngIf="!selectedTransfer" (ngSubmit)="onSubmit()" #sendSearchRequestForm="ngForm">
     <div class="form-group">
       <label for="from">From</label>
@@ -29,7 +30,7 @@
 
 
 
-    <button [disabled]="!sendSearchRequestForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="!sendSearchRequestForm.form.valid" type="submit" class="btn btn-primary">Search</button>
 
   </form>
 

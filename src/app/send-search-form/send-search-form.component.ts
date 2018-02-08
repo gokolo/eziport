@@ -3,6 +3,7 @@ import {SendSearchRequest} from '../send-search-request';
 import {TransferRequest} from '../transfer-request';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-send-search-form',
@@ -10,7 +11,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./send-search-form.component.css']
 })
 export class SendSearchFormComponent {
-  constructor(private http: HttpClient, public authService: AuthService) {}
+  constructor(private http: HttpClient, public authService: AuthService, private router: Router) {}
   transferRequests;
   countries = [
     {"name": "Afghanistan", "code": "AF"},
@@ -275,6 +276,10 @@ export class SendSearchFormComponent {
   }
 
   OnSelect(transferRequest) {
+    if(!this.authService.getUserName())
+    {
+      this.router.navigateByUrl("login");
+    }
     console.log(transferRequest);
     this.selectedTransfer = transferRequest;
     this.transferRequests = null;
