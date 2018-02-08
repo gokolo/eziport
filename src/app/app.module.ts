@@ -7,10 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { SendSearchFormComponent } from './send-search-form/send-search-form.component';
 import { HomeComponent } from './home/home.component';
 import { TransferRequestFormComponent } from './transfer-request-form/transfer-request-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MypackagesComponent } from './mypackages/mypackages.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'send', component: SendSearchFormComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'mypackages', component: MypackagesComponent }
 
 ];
 
@@ -20,14 +23,15 @@ const appRoutes: Routes = [
     SendSearchFormComponent,
     HomeComponent,
     TransferRequestFormComponent,
-    LoginComponent
+    LoginComponent,
+    MypackagesComponent,
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-
+    HttpClientModule,
     BrowserModule,
     FormsModule
   ],
