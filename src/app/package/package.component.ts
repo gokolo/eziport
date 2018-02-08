@@ -6,8 +6,8 @@ import { Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-Package',
-  templateUrl: './Package.component.html',
-  styleUrls: ['./Package.component.css']
+  templateUrl: './package.component.html',
+  styleUrls: ['./package.component.css']
 })
 export class PackageComponent {
   packages;

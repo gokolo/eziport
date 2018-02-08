@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PackageComponent } from './Package.component';
+import { PackageComponent } from './package.component';
 
 describe('PackageComponent', () => {
   let component: PackageComponent;
