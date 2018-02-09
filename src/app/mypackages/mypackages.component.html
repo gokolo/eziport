@@ -34,7 +34,7 @@
               <td>{{sendingReq.weight}} kg</td>
               <td class="margin-right" *ngIf="sendingReq.status == 'PENDING'" (click)="accept(sendingReq.sendId)" class="w3-button w3-green">Accept</td>
               <td *ngIf="sendingReq.status =='PENDING'" (click)="reject(sendingReq.sendId)" class="w3-button w3-red">Reject</td>
-              <td *ngIf="sendingReq.status !='PENDING'" >{{sendingReq.status}}</td>
+              <td *ngIf="sendingReq.status !='PENDING'">{{sendingReq.status}}</td>
             </div>
 
           </td>
@@ -43,33 +43,33 @@
     </div>
   </div>
 
-    <div *ngIf="shownPackages=='sendings'">
+  <div *ngIf="shownPackages=='sendings'">
 
-      <div *ngIf="sendings">
-        <table class="w3-table-all">
-          <thead>
-            <tr class="w3-blue">
-              <th>From</th>
-              <th>To</th>
-              <th>Date</th>
-              <th>Weight(Kg)</th>
-              <th>To address</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tr *ngFor="let sending of sendings">
-            <td>{{sending.countryFrom}}</td>
-            <td>{{sending.countryTo}}</td>
-            <td>{{sending.date | date:'dd/MM/yyyy'}}</td>
-            <td>{{sending.weight}}</td>
-            <td>{{sending.destination}}</td>
-            <td>{{sending.status}}</td>
+    <div *ngIf="sendings">
+      <table class="w3-table-all">
+        <thead>
+          <tr class="w3-blue">
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+            <th>Weight(Kg)</th>
+            <th>To address</th>
+            <th>Status</th>
           </tr>
-        </table>
-      </div>
-
+        </thead>
+        <tr *ngFor="let sending of sendings">
+          <td>{{sending.countryFrom}}</td>
+          <td>{{sending.countryTo}}</td>
+          <td>{{sending.date | date:'dd/MM/yyyy'}}</td>
+          <td>{{sending.weight}}</td>
+          <td>{{sending.destination}}</td>
+          <td>{{sending.status}}</td>
+        </tr>
+      </table>
     </div>
 
-
-
   </div>
+
+
+
+</div>

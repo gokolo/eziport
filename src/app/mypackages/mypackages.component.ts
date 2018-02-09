@@ -17,15 +17,17 @@ export class MypackagesComponent implements OnInit {
   sendingClass = 'active';
   transferingClass = '';
  sendingClick(){
+  console.log(this.sendings);
   this.sendingClass = 'active';
   this.transferingClass = '';
-  this.shownPackages = 'sending';
+  this.shownPackages = 'sendings';
  }
 
  transferingClick(){
+  console.log(this.transferings);
   this.transferingClass = 'active';
   this.sendingClass = '';
-  this.shownPackages = 'transfering';
+  this.shownPackages = 'transferings';
  }
 
  getSendings(){
