@@ -14,6 +14,19 @@ export class MypackagesComponent implements OnInit {
   sendings;
   shownPackages = 'sendings';
   messsage;
+  sendingClass = 'active';
+  transferingClass = '';
+ sendingClick(){
+  this.sendingClass = 'active';
+  this.transferingClass = '';
+  this.shownPackages = 'sending';
+ }
+
+ transferingClick(){
+  this.transferingClass = 'active';
+  this.sendingClass = '';
+  this.shownPackages = 'transfering';
+ }
 
  getSendings(){
   this.shownPackages = "sending";

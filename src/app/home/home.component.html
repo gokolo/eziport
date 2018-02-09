@@ -1,7 +1,7 @@
 <div class="container">
   <ul *ngIf = "authService.getUserName()" class="tab-group">
-    <li class="tab active"><a (click) = "shownForm='send'">Send Package</a></li>
-    <li class="tab"><a (click) = "shownForm='transfer'">Transfer Package</a></li>
+    <li  class="tab {{sendClass}}"><a (click) = "sendClick()">Send Package</a></li>
+    <li  class="tab {{transferClass}}"><a (click) = "transferClick()">Transfer Package</a></li>
   </ul>
   
   <!-- <button (click) = "shownForm='send'" class="w3-button w3-blue">Send Package</button>

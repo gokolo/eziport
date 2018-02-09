@@ -12,7 +12,20 @@ export class HomeComponent implements OnInit {
 
   }
   shownForm = 'send';
+  sendClass = "active";
+  transferClass = "";
   messsages = [];
+  sendClick(){
+    this.sendClass='active';
+    this.transferClass='';
+    this.shownForm = 'send';
+  }
+
+  transferClick(){
+    this.transferClass='active';
+    this.sendClass='';
+    this.shownForm = 'transfer';
+  }
   
   ngOnInit() {
      console.log(this.authService.getUserName());

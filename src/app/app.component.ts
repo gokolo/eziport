@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public authService: AuthService){
+  constructor(public authService: AuthService, private router: Router){
 
   }
   title = 'app';
@@ -15,6 +16,7 @@ export class AppComponent {
   logout()
   {
     this.authService.unsetUserName();
+    this.router.navigateByUrl("");
   }
 
   // openEventPage(event) {
